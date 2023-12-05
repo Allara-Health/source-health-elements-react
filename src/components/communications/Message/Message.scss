@@ -1,0 +1,122 @@
+.source-comms__message {
+  font-size: 0.875rem;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  &--top,
+  &--single {
+    margin-top: 1rem;
+  }
+
+  &--bottom,
+  &--single {
+    margin-bottom: 2rem;
+  }
+
+  &--container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &--attachments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.125rem 0;
+  }
+
+  &--meta {
+    display: inline-flex;
+    color: #929ca6;
+    font-size: 0.75rem;
+    padding: 0 0.75rem;
+    margin: 0.125rem 0 -1rem 0;
+  }
+
+  &--sender {
+    font-weight: 600;
+    margin-right: 0.25rem;
+  }
+
+  &--content {
+    background: #f6f6f6;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.15rem;
+    display: inline-flex;
+    margin: 0.125rem 0;
+    white-space: pre-wrap;
+  }
+
+  &--image {
+    margin: 0 0.5rem;
+  }
+
+  &--top &--meta,
+  &--middle &--meta {
+    display: none;
+  }
+
+  &--top &--image,
+  &--middle &--image {
+    visibility: hidden;
+  }
+
+  &--contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &--top &--content:first-child,
+  &--single &--content:first-child {
+    border-top-left-radius: 1.5rem;
+  }
+
+  &--bottom &--content:last-child,
+  &--single &--content:last-child {
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  &--outgoing {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+  }
+
+  &--incoming &--content {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+
+  &--outgoing &--content {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
+  &--outgoing &--image {
+    display: none;
+  }
+
+  &--outgoing &--container {
+    align-items: flex-end;
+  }
+
+  &--outgoing &--content {
+    background-color: var(--source-accent-color);
+    color: white;
+  }
+
+  &--outgoing &--sender {
+    display: none;
+  }
+
+  &--attachment {
+    transition: background-color 150ms ease-out;
+  }
+
+  &--attachment:hover {
+    background: #eaeaea;
+  }
+}
