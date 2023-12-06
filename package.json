@@ -1,16 +1,23 @@
 {
   "name": "@allara-health/source-health-elements-react",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "dist/elements-react.js",
   "browser": "dist/elements-react.min.js",
   "typings": "dist/index.d.ts",
-  "repository": "git@github.com:source-health/elements.git",
   "author": "Daniel Schwartz <daniel@sourcehealth.com>",
   "license": "MIT",
   "files": [
     "dist",
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allarahealth/source-health-elements-react.git"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -20,8 +27,8 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@allara-health/source-health-client": "^1.3.3",
     "@babel/core": "^7.15.5",
-    "@source-health/client": "^1.3.0",
     "@storybook/addon-actions": "^6.4.8",
     "@storybook/addon-contexts": "^5.3.21",
     "@storybook/addon-essentials": "^6.4.8",
@@ -59,7 +66,7 @@
     "webpack-cli": "^4.8.0"
   },
   "peerDependencies": {
-    "@source-health/client": "^1.3.0",
+    "@allara-health/source-health-client": "^1.3.3",
     "react": "^17.0.2"
   },
   "jest": {
