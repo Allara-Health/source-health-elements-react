@@ -1,4 +1,4 @@
-import type { Thread, ThreadStatus } from '@source-health/client'
+import type { Thread, ThreadStatus } from '@allara-health/source-health-client'
 import React, { ComponentType, FunctionComponent } from 'react'
 
 import { usePaginatedList } from '../../../hooks'
@@ -97,7 +97,7 @@ export const ThreadList: FunctionComponent<ThreadListProps> = ({
     <Container
       loading={isRefreshing}
       error={error}
-      threads={data}
+      threads={data as Thread[]}
       LoadingComponent={LoadingComponent}
       LoadingErrorComponent={LoadingErrorComponent}
     >
@@ -110,7 +110,7 @@ export const ThreadList: FunctionComponent<ThreadListProps> = ({
         {data.map((thread) => (
           <Item
             key={thread.id}
-            thread={thread}
+            thread={thread as Thread}
             onThreadSelected={onThreadSelected}
             AvatarComponent={AvatarComponent}
           />

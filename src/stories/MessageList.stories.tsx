@@ -1,4 +1,4 @@
-import { Source, UserAuthentication } from '@source-health/client'
+import { Source, UserAuthentication } from '@allara-health/source-health-client'
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
 
@@ -16,7 +16,7 @@ export default {
 export const Simple: Story<MessageListProps & { apiKey?: string }> = (args) => (
   <SourceElements
     client={
-      new Source(new UserAuthentication(args.apiKey ?? '', true), {
+      new Source('', new UserAuthentication(args.apiKey ?? '', true), {
         baseUrl: 'http://localhost:3000',
       })
     }

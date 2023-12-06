@@ -1,4 +1,4 @@
-import { Message } from '@source-health/client'
+import { Message } from '@allara-health/source-health-client'
 
 export interface ThreadState {
   threadId: string | null

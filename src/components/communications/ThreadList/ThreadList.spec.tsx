@@ -1,4 +1,4 @@
-import type { Expandable, Member, Thread } from '@source-health/client'
+import type { Expandable, Member, Thread } from '@allara-health/source-health-client'
 import { render, waitForElementToBeRemoved } from '@testing-library/react'
 import React from 'react'
 

@@ -1,5 +1,5 @@
-import type { Member } from '@source-health/client'
-import { Source, JWTAuthentication } from '@source-health/client'
+import type { Member } from '@allara-health/source-health-client'
+import { Source, JWTAuthentication } from '@allara-health/source-health-client'
 import React, { FunctionComponent, useEffect, useMemo, useState } from 'react'
 
 import { SourceContext, SourceContextValue } from '../context/elements'
@@ -37,7 +37,7 @@ export const SourceElements: FunctionComponent<
     if ('client' in rest) {
       return rest.client
     } else {
-      return new Source(rest.token, { baseUrl })
+      return new Source('', rest.token, { baseUrl })
     }
   }, [(rest as { client: Source }).client || (rest as { token: JWTAuthentication }).token, baseUrl])
 

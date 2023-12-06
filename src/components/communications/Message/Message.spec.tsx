@@ -4,7 +4,7 @@ import type {
   Message as MessageResource,
   Thread,
   User,
-} from '@source-health/client'
+} from '@allara-health/source-health-client'
 import { render } from '@testing-library/react'
 import React from 'react'
 

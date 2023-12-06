@@ -1,4 +1,4 @@
-import type { Thread } from '@source-health/client'
+import type { Thread } from '@allara-health/source-health-client'
 import React, { ComponentType, FunctionComponent } from 'react'
 
 import { useClassFactory } from '../../../hooks'

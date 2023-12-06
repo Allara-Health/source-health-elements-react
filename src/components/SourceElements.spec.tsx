@@ -1,4 +1,4 @@
-import { JWTAuthentication, Source } from '@source-health/client'
+import { JWTAuthentication, Source } from '@allara-health/source-health-client'
 import { renderHook } from '@testing-library/react-hooks'
 import React, { FC } from 'react'
 
@@ -7,7 +7,7 @@ import { useSourceContext } from '../context/elements'
 import { SourceElements } from './SourceElements'
 
 const retrieve = jest.fn()
-jest.mock('@source-health/client', () => {
+jest.mock('@allara-health/source-health-client', () => {
   return {
     Source: () => ({
       members: {
@@ -52,7 +52,7 @@ beforeEach(() => {
 describe('SourceElements', () => {
   it('with client should create a context that is made available to other components', async () => {
     const wrapper: FC<unknown> = ({ children }) => (
-      <SourceElements client={new Source()}>{children}</SourceElements>
+      <SourceElements client={new Source('')}>{children}</SourceElements>
     )
 
     const { result, waitForNextUpdate } = renderHook(() => useSourceContext(), { wrapper })

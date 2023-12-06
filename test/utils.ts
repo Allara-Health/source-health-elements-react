@@ -1,4 +1,4 @@
-import type { Member, Source } from '@source-health/client'
+import type { Member, Source } from '@allara-health/source-health-client'
 import { createElement, FunctionComponent } from 'react'
 
 import { SourceContext } from '../src/context/elements'

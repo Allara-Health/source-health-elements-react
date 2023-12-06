@@ -1,4 +1,4 @@
-import type { Member, Source } from '@source-health/client'
+import type { Member, Source } from '@allara-health/source-health-client'
 import { createContext, useContext } from 'react'
 
 export interface SourceContextValue {

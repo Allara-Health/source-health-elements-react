@@ -1,4 +1,4 @@
-import type { File, Message } from '@source-health/client'
+import type { File, Message } from '@allara-health/source-health-client'
 import { createContext, useContext } from 'react'
 
 export interface MessageCreateAttachmentInputs {

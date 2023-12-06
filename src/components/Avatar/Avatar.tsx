@@ -1,4 +1,4 @@
-import { File } from '@source-health/client'
+import { File } from '@allara-health/source-health-client'
 import React, { FunctionComponent } from 'react'
 
 export interface AvatarProps {

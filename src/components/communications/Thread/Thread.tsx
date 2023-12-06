@@ -1,4 +1,8 @@
-import type { Expandable, Message, Thread as ThreadResource } from '@source-health/client'
+import type {
+  Expandable,
+  Message,
+  Thread as ThreadResource,
+} from '@allara-health/source-health-client'
 import React, { FunctionComponent, useCallback, useEffect, useMemo, useReducer } from 'react'
 
 import { useMember, useSourceClient } from '../../../context/elements'

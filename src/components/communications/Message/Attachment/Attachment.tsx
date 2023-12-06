@@ -1,4 +1,4 @@
-import type { MessageAttachment } from '@source-health/client'
+import type { MessageAttachment } from '@allara-health/source-health-client'
 import React, { FunctionComponent } from 'react'
 
 import { useClassFactory } from '../../../../hooks'

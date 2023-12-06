@@ -3,7 +3,7 @@
 :bangbang: | This SDK is still in preview.
 :---: | :---
 
-This project contains Source Elements, our React based member facing SDK. This SDK makes it easy for you to build member side experiences and uses an underlying `@source-health/client` that you provide to it to make calls using your API keys to the Source Health API. 
+This project contains Source Elements, our React based member facing SDK. This SDK makes it easy for you to build member side experiences and uses an underlying `@allara-health/source-health-client` that you provide to it to make calls using your API keys to the Source Health API. 
 
 ## Installation
 
@@ -24,11 +24,11 @@ npm install --save @source-health/elements-react
 ##  Getting Started
 
 ### Generating a Member JWT
-In order to use Source Elements you must generate a member JWT on your backend that gets passed to your application. This member JWT is generated on your backend using your private API keys and is what lets our API know you've authenticated your member and that we can trust requests coming directly from your frontend on behalf of a given member. If your backend is javascript based you can use our `@source-health/client` to easily generate a JWT like so:
+In order to use Source Elements you must generate a member JWT on your backend that gets passed to your application. This member JWT is generated on your backend using your private API keys and is what lets our API know you've authenticated your member and that we can trust requests coming directly from your frontend on behalf of a given member. If your backend is javascript based you can use our `@allara-health/source-health-client` to easily generate a JWT like so:
 
 ```typescript
 // backend.ts
-import { Source, ApiKey } from '@source-health/client'
+import { Source, ApiKey } from '@allara-health/source-health-client'
 
 const source = new Source(new ApiKey('SOURCE_KEY_ID', 'SOURCE_KEY_SECRET'))
 
@@ -38,7 +38,7 @@ const jwt = await source.tokens.generate({
 })
 ```
 
-If your backend isn't writtern in javascript or you simply would like generate the JWT yourself you can do easily. Here is an abridged version of how our `@source-health/client` does it internally:
+If your backend isn't writtern in javascript or you simply would like generate the JWT yourself you can do easily. Here is an abridged version of how our `@allara-health/source-health-client` does it internally:
 
 ```typescript
 import { SignJWT } from 'jose/jwt/sign'
@@ -84,7 +84,7 @@ In order for your application to have access to the SourceElements context you m
 ```tsx
 // App.tsx
 import React, { useMemo } from 'react'
-import { Source, Token } from '@source-health/client'
+import { Source, Token } from '@allara-health/source-health-client'
 import { SourceElements } from '@source-health/elements-react'
 
 function App() {

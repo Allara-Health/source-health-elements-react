@@ -1,4 +1,4 @@
-import type { ApiKey, Member, User } from '@source-health/client'
+import type { ApiKey, Member, User } from '@allara-health/source-health-client'
 import React, { FunctionComponent } from 'react'
 
 export interface NameProps {

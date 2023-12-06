@@ -1,4 +1,4 @@
-import { ApiKeyAuthentication, CareTeam, Expandable, Source } from '@source-health/client'
+import { ApiKeyAuthentication, CareTeam, Expandable, Source } from '@allara-health/source-health-client'
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 

@@ -1,4 +1,4 @@
-import type { Member } from '@source-health/client'
+import type { Member } from '@allara-health/source-health-client'
 import { act, renderHook } from '@testing-library/react-hooks'
 import React, { FunctionComponent } from 'react'
 
