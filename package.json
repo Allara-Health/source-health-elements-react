@@ -1,6 +1,6 @@
 {
   "name": "@allara-health/source-health-elements-react",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "dist/elements-react.js",
   "browser": "dist/elements-react.min.js",
   "typings": "dist/index.d.ts",
@@ -15,7 +15,6 @@
     "url": "https://github.com/allarahealth/source-health-elements-react.git"
   },
   "publishConfig": {
-    "access": "restricted",
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
