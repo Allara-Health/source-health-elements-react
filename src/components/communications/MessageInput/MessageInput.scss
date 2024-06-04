@@ -1,8 +1,11 @@
 .source-comms__message-input {
   border: 1px solid #eee;
   border-radius: 6px;
-  display: flex;
-  align-items: flex-start;
+
+  &--input-area {
+    display: flex;
+    align-items: flex-start;
+  }
 
   &--focused {
     border-color: black;
@@ -36,4 +39,12 @@
     padding: 0.6rem;
     display: inline-flex;
   }
+
+  &--file-previews {
+    padding: 0.6rem;
+    display: inline-flex;
+    flex-direction: column;
+    width: 50%;
+  }
 }
+
