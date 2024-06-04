@@ -24,7 +24,7 @@ export const AttachFileButton = ({
           if (file.size > 5000000) {
             toast({
               status: 'error',
-              title: 'Upload failsed',
+              title: 'Upload failed',
               description: 'File size is too large',
             })
           } else {
