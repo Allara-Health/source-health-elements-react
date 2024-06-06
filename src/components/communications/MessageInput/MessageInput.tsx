@@ -23,6 +23,7 @@ export const MessageInput: FunctionComponent<MessageInputProps> = ({
   InputComponent = MessageInputSimple,
 }) => {
   const [text, setText] = useState('')
+  const [attachments, setAttachments] = useState<MessageInputContextValue['attachments']>([])
   const { sendMessage } = useThreadContext()
 
   const handleChange = useCallback(
@@ -35,10 +36,12 @@ export const MessageInput: FunctionComponent<MessageInputProps> = ({
   const send = useCallback(() => {
     sendMessage({
       text,
+      attachments,
     })
 
     setText('')
-  }, [text, setText])
+    setAttachments([])
+  }, [text, setText, attachments, setAttachments])
 
   const contextValue: MessageInputContextValue = useMemo(
     () => ({
@@ -46,8 +49,10 @@ export const MessageInput: FunctionComponent<MessageInputProps> = ({
       setText,
       handleChange,
       send,
+      attachments,
+      setAttachments,
     }),
-    [text, setText, handleChange, send],
+    [text, setText, handleChange, send, attachments, setAttachments],
   )
 
   return (

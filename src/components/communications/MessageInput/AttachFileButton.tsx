@@ -2,19 +2,19 @@ import { AttachmentIcon } from '@chakra-ui/icons'
 import { IconButton, useToast } from '@chakra-ui/react'
 import React, { useCallback, useRef } from 'react'
 
-import { FileInfo } from './FilePreview'
+import { MessageCreateAttachmentInputs } from '../../../context/thread'
 
 export const AttachFileButton = ({
   setFiles,
 }: {
-  setFiles: (files: FileInfo[]) => void
+  setFiles: (files: MessageCreateAttachmentInputs[]) => void
 }): JSX.Element => {
   const toast = useToast()
   const importFileRef = useRef<HTMLInputElement>(null)
 
   const handleChooseFile = useCallback(() => {
     if (importFileRef.current && importFileRef.current.files?.length) {
-      const fileInfos: FileInfo[] = []
+      const fileInfos: MessageCreateAttachmentInputs[] = []
 
       for (let i = 0; i < importFileRef.current.files.length; i++) {
         const file = importFileRef.current.files.item(i)
@@ -29,10 +29,19 @@ export const AttachFileButton = ({
             })
           } else {
             fileInfos.push({
-              name: file.name,
-              size: file.size,
-              type: file.type,
-              url: URL.createObjectURL(file),
+              file: {
+                name: file.name,
+                size: file.size,
+                mime_type: file.type,
+                url: URL.createObjectURL(file),
+                purpose: 'message_attachment',
+                // 7 years from now
+                url_expires_at: new Date(Date.now() + 7 * 365 * 24 * 60 * 60 * 1000).toISOString(),
+                created_at: new Date().toISOString(),
+                variants: {},
+                object: 'file',
+                id: `file_${i}`,
+              },
             })
           }
         }

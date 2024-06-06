@@ -1,29 +1,29 @@
-import { ChakraProvider, GridItem, Grid } from '@chakra-ui/react'
-import React, { FunctionComponent, useCallback, useRef, useState } from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
+import React, { FunctionComponent, useCallback, useRef } from 'react'
 
 import { useMessageInputContext } from '../../../context/input'
 import { useClassFactory, useFocusTracking } from '../../../hooks'
 import { AutosizeTextarea } from '../../AutosizeTextarea'
 
 import { AttachFileButton } from './AttachFileButton'
-import { FileInfo, FilePreview } from './FilePreview'
+import { FilePreview } from './FilePreview'
 import { SendMessageButton } from './SendMessageButton'
 
 export const MessageInputSimple: FunctionComponent<unknown> = () => {
   const className = useClassFactory('comms', 'message-input')
   const ref = useRef<HTMLTextAreaElement>(null)
-  const { text, handleChange, send } = useMessageInputContext()
-  const [files, setFiles] = useState<FileInfo[]>([])
+  const { text, handleChange, send, attachments, setAttachments } = useMessageInputContext()
   const isFocused = useFocusTracking(ref)
   const classNames = [
     className(),
     isFocused ? className('focused') : '',
-    text || files.length > 0 ? className('has-text') : '',
+    (text || attachments?.length) ?? false ? className('has-text') : '',
   ].join(' ')
   const handleClick = useCallback(() => send(), [send])
 
   const handleRemoveFile = (index: number) => {
-    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index))
+    const newFiles = attachments?.filter((_, i) => i !== index)
+    setAttachments(newFiles ?? [])
   }
 
   return (
@@ -38,7 +38,7 @@ export const MessageInputSimple: FunctionComponent<unknown> = () => {
             value={text}
           />
           <div className={className('action-buttons')}>
-            <AttachFileButton setFiles={setFiles} />
+            <AttachFileButton setFiles={setAttachments} />
             <SendMessageButton
               className={className('send-button')}
               size={20}
@@ -46,9 +46,9 @@ export const MessageInputSimple: FunctionComponent<unknown> = () => {
             />
           </div>
         </div>
-        {files.length > 0 && (
+        {attachments && attachments.length > 0 && (
           <div className={className('file-previews')}>
-            <FilePreview files={files} onRemove={handleRemoveFile} />
+            <FilePreview files={attachments} onRemove={handleRemoveFile} />
           </div>
         )}
       </div>

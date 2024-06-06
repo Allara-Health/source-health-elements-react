@@ -1,6 +1,6 @@
 {
   "name": "@allara-health/source-health-elements-react",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "main": "dist/elements-react.js",
   "browser": "dist/elements-react.min.js",
   "typings": "dist/index.d.ts",
