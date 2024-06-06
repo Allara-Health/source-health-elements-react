@@ -10,7 +10,8 @@
     "removeComments": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": ["./src", "./test"]
 }
