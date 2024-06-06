@@ -30,11 +30,6 @@ export interface MessageInputContextValue {
    */
   send: Callback
 
-  // /**
-  //  * Function to handle a change to the attachments of the message
-  //  */
-  // handleAttachments: Callback<MessageCreateAttachmentInputs[]>
-
   /**
    * Custom callback function to set the attachments inside of the context
    */
