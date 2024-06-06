@@ -1,6 +1,6 @@
 {
   "name": "@allara-health/source-health-elements-react",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "main": "dist/elements-react.js",
   "browser": "dist/elements-react.min.js",
   "typings": "dist/index.d.ts",
@@ -84,5 +84,13 @@
       },
       "_VERSION": true
     }
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "framer-motion": "^11.2.10",
+    "react-icons": "^5.2.1"
   }
 }
