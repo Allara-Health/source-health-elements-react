@@ -2,11 +2,18 @@ import { ChangeEvent, createContext, useContext } from 'react'
 
 import { Callback } from '../types'
 
+import { MessageCreateAttachmentInputs } from './thread'
+
 export interface MessageInputContextValue {
   /**
    * Current text that has been entered into the input
    */
   text: string
+
+  /**
+   * Attachments that have been added to the message
+   */
+  attachments?: MessageCreateAttachmentInputs[]
 
   /**
    * Custom callback function to set the text inside of the context
@@ -22,6 +29,16 @@ export interface MessageInputContextValue {
    * Trigger the current message to send
    */
   send: Callback
+
+  // /**
+  //  * Function to handle a change to the attachments of the message
+  //  */
+  // handleAttachments: Callback<MessageCreateAttachmentInputs[]>
+
+  /**
+   * Custom callback function to set the attachments inside of the context
+   */
+  setAttachments: Callback<MessageCreateAttachmentInputs[]>
 }
 
 export const MessageInputContext = createContext<MessageInputContextValue | null>(null)

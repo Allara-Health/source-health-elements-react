@@ -2,22 +2,17 @@ import { CloseIcon } from '@chakra-ui/icons'
 import { Box, Flex, IconButton, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
-export interface FileInfo {
-  name: string
-  size: number
-  type: string
-  url: string
-}
+import { MessageCreateAttachmentInputs } from '../../../context/thread'
 
 interface FilePreviewProps {
-  files: FileInfo[]
+  files: MessageCreateAttachmentInputs[]
   onRemove: (index: number) => void
 }
 
 export const FilePreview: React.FC<FilePreviewProps> = ({ files, onRemove }) => {
   return (
     <Box mt={2}>
-      {files.map((file, index) => (
+      {files?.map((attachment, index) => (
         <Flex
           key={index}
           p={2}
@@ -26,10 +21,10 @@ export const FilePreview: React.FC<FilePreviewProps> = ({ files, onRemove }) => 
           mb={2}
           alignItems="center"
         >
-          {file.type.startsWith('image/') && (
+          {attachment.file.mime_type.startsWith('image/') && (
             <Image
-              src={file.url}
-              alt={file.name}
+              src={attachment.file.url}
+              alt={attachment.file.name}
               boxSize="40px"
               objectFit="cover"
               borderRadius="md"
@@ -37,9 +32,9 @@ export const FilePreview: React.FC<FilePreviewProps> = ({ files, onRemove }) => 
             />
           )}
           <Box flex="1">
-            <Text fontWeight="bold">{file.name}</Text>
+            <Text fontWeight="bold">{attachment.file.name}</Text>
             <Text fontSize="sm" color="gray.500">
-              {file.type}
+              {attachment?.file?.mime_type}
             </Text>
           </Box>
           <IconButton
