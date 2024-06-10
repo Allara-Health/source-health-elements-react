@@ -13,6 +13,11 @@ export interface MessageCreateAttachmentInputs {
   metadata?: Record<string, unknown>
 }
 
+export interface ComposerFileAttachment {
+  type: 'file' | 'link'
+  file: File
+}
+
 export interface MessageCreateInputs {
   /**
    * The message content to send

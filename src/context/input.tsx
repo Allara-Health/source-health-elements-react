@@ -2,7 +2,7 @@ import { ChangeEvent, createContext, useContext } from 'react'
 
 import { Callback } from '../types'
 
-import { MessageCreateAttachmentInputs } from './thread'
+import { ComposerFileAttachment, MessageCreateAttachmentInputs } from './thread'
 
 export interface MessageInputContextValue {
   /**
@@ -34,6 +34,11 @@ export interface MessageInputContextValue {
    * Custom callback function to set the attachments inside of the context
    */
   setAttachments: Callback<MessageCreateAttachmentInputs[]>
+
+  /**
+   * Custom callback function to attach files to the message object
+   */
+  attachFileToMessage: (file: ComposerFileAttachment) => void
 }
 
 export const MessageInputContext = createContext<MessageInputContextValue | null>(null)
