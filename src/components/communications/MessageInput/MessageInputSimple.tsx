@@ -12,7 +12,8 @@ import { SendMessageButton } from './SendMessageButton'
 export const MessageInputSimple: FunctionComponent<unknown> = () => {
   const className = useClassFactory('comms', 'message-input')
   const ref = useRef<HTMLTextAreaElement>(null)
-  const { text, handleChange, send, attachments, setAttachments } = useMessageInputContext()
+  const { text, handleChange, send, attachments, setAttachments, attachFileToMessage } =
+    useMessageInputContext()
   const isFocused = useFocusTracking(ref)
   const classNames = [
     className(),
@@ -38,7 +39,7 @@ export const MessageInputSimple: FunctionComponent<unknown> = () => {
             value={text}
           />
           <div className={className('action-buttons')}>
-            <AttachFileButton setFiles={setAttachments} />
+            <AttachFileButton onFileAttached={attachFileToMessage} />
             <SendMessageButton
               className={className('send-button')}
               size={20}
