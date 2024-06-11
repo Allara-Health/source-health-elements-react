@@ -135,8 +135,9 @@ export const Thread: FunctionComponent<ThreadProps> = ({ id, children, onSend })
       hasMoreMessages: hasMoreMessages,
       fetchMoreMessages: fetchMoreMessages,
       sendMessage,
+      dispatch,
     }),
-    [id, messages, fetchMoreMessages, sendMessage, hasMoreMessages, isLoading],
+    [id, messages, fetchMoreMessages, sendMessage, hasMoreMessages, isLoading, dispatch],
   )
 
   useEffect(() => {
